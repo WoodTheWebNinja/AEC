@@ -27,6 +27,7 @@ class EtudiantFactory extends Factory
             'date_de_naissance' => $this->faker->dateTimeBetween('1990-01-01', '2000-12-31')->format('m/d/Y'),
             //'villeID' => $this->faker->unique()->numberBetween(1, App\Villes::class)->id,
             'villeID' => $this->faker->unique()->numberBetween(1, 15),
+            'user_id' => $this->faker->unique()->numberBetween(1, 15),
         ];
     }
 
