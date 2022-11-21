@@ -144,18 +144,12 @@ class CustomAuthController extends Controller
 
         if(Auth::check()){
 
-            $etudiant = User::find(1); 
-            var_dump( $etudiant) ;
-
-            $test =  Etudiant::find($etudiant ->user_id); 
-
-          //  var_dump( $test) ;
-    
-            $name = Auth::user()->id;
+            
+            $email = Auth::user()->email;
         }
 
       
-        return view('dashboard', ['name' =>$name]);
+        return view('dashboard', ['email' =>$email]);
     }
 
 

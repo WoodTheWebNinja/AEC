@@ -11,9 +11,8 @@ class BlogPost extends Model
    // protected $table = 'autre nom';
 
     protected $fillable = [
-        'titre',
+        'title',
         'body',
-        'date',
         'user_id'
        
     ];

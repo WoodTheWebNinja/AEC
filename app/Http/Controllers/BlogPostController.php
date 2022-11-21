@@ -5,6 +5,7 @@ use App\Models\Etudiant;
 use App\Models\BlogPost;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use DB;
 
 class BlogPostController extends Controller
@@ -12,14 +13,18 @@ class BlogPostController extends Controller
     public function index()
     {
     
-       // if(Auth::check()){
-            $posts = BlogPost::all();
+        if(Auth::check()){
+        $etudiants = Etudiant::all();
+        $posts = BlogPost::all();
         // return $posts; 
-        // $posts = BlogPost::select()->where("user_id", "=" ,"1")->get();
-        return  view('blog.forum', ['posts' => $posts]); 
-      //  }
-     //   return redirect(route('login'))->withErrors('Pas autorise');
+         //$posts = BlogPost::select()->where("user_id", "=" ,"1")->get();
+         $email = Auth::user()->email;
+        return  view('blog.forum', ['posts' => $posts],  ['email' =>$email]); 
+
+      }
+        return redirect(route('login'))->withErrors('Pas autorise');
     }
+
 
 
 
@@ -54,8 +59,10 @@ class BlogPostController extends Controller
 // Add student part 1 (Formulaire)
 public function create(){
     $user = new User;
-    $user = $user->id ;
-    return view('blog.create', ['user' =>  $user]);
+    $email = Auth::user()->email;
+    $user_id = Auth::user()->id;
+    
+    return view('blog.create', ['user' =>  $user_id ]);
 }
 
 // Add DB part 2
@@ -63,22 +70,25 @@ public function create(){
 public function store(Request $request)
 {
     //print_r($_POST);
-    
-    $newEtudiant = Etudiant::create([
-        'nom' => $request->nom,
-        'adresse' => $request->adresse,
-        'phone' => $request->phone,
-        'email' => $request->email,
-        'date_de_naissance' => $request->date_de_naissance,
-        'villeID' => $request->villes_id
+    $email = Auth::user()->email;
+    $newBlog = BlogPost::create([
+        'title' => $request->title,
+        'body' => $request->body,
+        'user_id' => $request->user_id
        
     ]);
         
-    return redirect(route('etudiant', $newEtudiant->id));
+    return redirect(route('forum',  $newBlog->id , ['email' =>  $email ]) );
 }
 
 
+public function show($id)
+{
+    $blog = BlogPost::find($id);    
+    $email = Auth::user()->email;
 
+    return  view('blog.show', ['blog' =>    $blog],['email' =>  $email ]);
+}
 
 
 

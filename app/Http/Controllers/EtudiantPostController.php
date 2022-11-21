@@ -19,7 +19,9 @@ class EtudiantPostController extends Controller
         $etudiants = Etudiant::all();
        // return $posts; 
        // $posts = BlogPost::select()->where("user_id", "=" ,"1")->get();
-       return  view('index', ['etudiants' =>$etudiants ,]); 
+       $email = Auth::user()->email;
+
+       return  view('index', ['etudiants' =>$etudiants ], ['email' =>$email]); 
     }
 
 
