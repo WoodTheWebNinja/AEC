@@ -10,7 +10,8 @@
     <h1> Liste des Étudiants </h1>
     </div>
 
-    <div class="btn"> <a href="etudiant-create"> Ajouter  </a></div>
+    <div class="btn"> <a href="etudiant-create"> Ajouter Un article  </a></div>
+
 
     <div class="list__student">
        
