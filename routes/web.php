@@ -40,9 +40,9 @@ Route::put('/etudiant-edit/{etudiant}', [EtudiantPostController::class, 'update'
 Route::delete('/etudiant-edit/{etudiant}', [EtudiantPostController::class, 'destroy'])->name('etudiant.destroy');
 
 
-// Etudiant Blog 
+//  Blog Route  
 Route::get('/forum', [BlogPostController::class, 'index'])->name('blog.forum');
-Route::get('blog/{id}', [BlogPostController::class, 'show'])->name('etudiant');
+Route::get('blog/{id}', [BlogPostController::class, 'show'])->name('blog.show');
 Route::get('/blog-create', [BlogPostController::class, 'create'])->name('blog.create');
 Route::post('/blog-create', [BlogPostController::class, 'store'])->name('blog.store');
 Route::get('/blog-edit/{user}', [BlogPostController::class, 'edit'])->name('blog.edit');

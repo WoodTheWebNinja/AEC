@@ -16,7 +16,7 @@
                 </div>
                 <div class="control-group col-12">
                     <label for="adresse">Article</label>
-                    <input type="text" id="body" name="body" class="form-control">
+                    <input type="text" id="body" name="body"  class="form-control">
 
                 </div>
 

@@ -4,7 +4,7 @@
 @php $locale = session()->get('locale'); @endphp
 <nav class="navbar navbar-expand-lg bg-light">
   <div class="container-fluid">
-    <a class="navbar-brand" href="#">@lang('lang.text_hello') {{ $name }}</a>
+    <a class="navbar-brand" href="#">@lang('lang.text_hello') {{ $email }}</a>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
@@ -30,7 +30,7 @@
       <div class="">
           <div class="">
                           <h1> Bienvenu sur votre tableau de bord </h1>
-                          <p>   {{ $name }} </p>
+                          <p>   {{ $email }} </p>
           </div>
       </div>
 

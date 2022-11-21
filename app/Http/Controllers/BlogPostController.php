@@ -78,7 +78,7 @@ public function store(Request $request)
        
     ]);
         
-    return redirect(route('forum',  $newBlog->id , ['email' =>  $email ]) );
+    return redirect(route('blog.show',  $newBlog->id , ['email' =>  $email ]) );
 }
 
 
